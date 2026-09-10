@@ -1,0 +1,97 @@
+<div id='container'>
+    <p id="'text", style="font-size: 30px;">
+        Hidup Jokowi!!!
+    </p>
+</div>
+<div id="cont2">
+
+</div>
+
+
+<script>
+let cnt = document.getElementById('container');
+let cnt2 = document.getElementById('cont2');
+
+cnt.style.height = '100px';
+cnt.style.width = '200px';
+cnt.style.border = '3px dashed red'
+cnt.style.backgroundColor = 'gray';
+
+let div1 = document.createElement('div');
+div1.style.height = '100px';
+div1.style.width = '200px';
+div1.style.border = '2px solid green';
+div1.style.textAlign = 'center';
+
+let div2 = document.createElement('div');
+div2.style.height = '150px';
+div2.style.width = '300px';
+div2.style.border = '2px solid blue';
+
+let btn11 = document.createElement('button');
+btn11.innerHTML = 'Tambah';
+btn11.addEventListener('click', increaseCounter);
+btn11.style.padding = '10px';
+
+let btn12 = document.createElement('button');
+btn12.innerHTML = 'Kurang';
+btn12.addEventListener('click', decreaseCounter);
+btn12.style.padding = '10px';
+
+let btn13 = document.createElement('button');
+btn13.innerHTML = 'Reset';
+btn13.addEventListener('click', resetCounter);
+btn13.style.padding = '10px';
+
+let btn21 = document.createElement('button');
+btn21.innerHTML = 'lawan';
+btn21.addEventListener('click', lawan);
+
+let btn22 = document.createElement('button');
+btn22.innerHTML = 'hidup';
+btn22.addEventListener('click', hidup);
+
+let counter = 0;
+let kata1 = 'Saya Akan Lawan';
+let kata2 = 'Hidup Jokowi'
+
+function increaseCounter(){
+    counter += 1;
+    labl.innerHTML = counter;
+}
+function decreaseCounter(){
+    counter -= 1;
+    labl.innerHTML = counter;
+}
+function resetCounter(){
+    counter = 0;
+    labl.innerHTML = counter;
+}
+function lawan(){
+    labl2.innerHTML = kata1;
+}
+function hidup(){
+    labl2.innerHTML = kata2;
+}
+
+
+let labl = document.createElement('label');
+labl.innerHTML = counter;
+labl.style.paddingLeft = '20px';
+labl.style.paddingTop = '20px';
+
+let labl2 = document.createElement('label');
+labl2.innerHTML = 'Kata';
+
+cont2.append(div1);
+cont2.append(div2);
+
+div1.append(btn11);
+div1.append(btn12);
+div1.append(btn13);
+div1.append(labl);
+
+div2.append(btn21);
+div2.append(btn22);
+div2.append(labl2);
+</script>
