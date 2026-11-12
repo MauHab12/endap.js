@@ -36,7 +36,7 @@
 
     const T0 = 1;
     const tbeg = 0;
-    const tend = 10;
+    const tend = 4;
     const dt = 0.001 * T0;
     const Tobs = 0.05 * T0;
     const digit = 3;
@@ -60,32 +60,32 @@
     let w_num = 0;
     let q_num = A;
     for(let n = 0; n <= N; n++) {
-    if(tobs >= Tobs || tobs == 0) {
-        const q_the = A * Math.cos(w0 * t);
-        const t_str = t.toFixed(digit);
-        const q_the_str = q_the.toFixed(digit);
-        const q_num_str = q_num.toFixed(digit);
+        if(tobs >= Tobs || tobs == 0) {
+            const q_the = A * Math.cos(w0 * t);
+            const t_str = t.toFixed(digit);
+            const q_the_str = q_the.toFixed(digit);
+            const q_num_str = q_num.toFixed(digit);
+            
+            const x = t_str;
+            
+            const y_the = q_the_str;
+            const p_the = {x: x, y: y_the};
+            data_the.push(p_the);
+            
+            const y_num = q_num_str;
+            const p_num = {x: x, y: y_num};
+            data_num.push(p_num);
+            
+            consoles.log(t_str, "\t");
+            consoles.log(q_the_str, "\t");
+            consoles.log(q_num_str);
+            tobs = 0;
+        }
+        w_num += -(g/R) * Math.sin(q_num) * dt;
+        q_num += w_num * dt;
         
-        const x = t_str;
-        
-        const y_the = q_the_str;
-        const p_the = {x: x, y: y_the};
-        data_the.push(p_the);
-        
-        const y_num = q_num_str;
-        const p_num = {x: x, y: y_num};
-        data_num.push(p_num);
-        
-        consoles.log(t_str, "\t");
-        consoles.log(q_the_str, "\t");
-        consoles.log(q_num_str);
-        tobs = 0;
-    }
-    w_num += -(g/R) * Math.sin(q_num) * dt;
-    q_num += w_num * dt;
-    
-    t += dt;
-    tobs += dt; 
+        t += dt;
+        tobs += dt; 
     }
 
 
